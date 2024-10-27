@@ -1,0 +1,31 @@
+#install fcrackzip
+
+sudo apt install fcrackzip
+
+#If there is a password to unzip you can use
+# https://www.dcode.fr/zip-password 
+
+#from Downloads where you have the encrypted zip
+fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt encrypted.zip
+
+#output shown below
+PASSWORD FOUND!!!: pw == "cracked_zip_password"
+
+#Decrypt and unzip
+unzip -P "cracked_zip_password" encrypted.zip
+
+#output should show
+Archive:  encrypted.zip
+   creating: zip_archive/
+ extracting: zip_archive/flag.txt   
+
+#Move to dir if below is shown
+#when -> ls zip_archive is ran
+#flag.txt is shown
+
+cd zip_archive
+➜  zip_archive ls
+flag.txt
+➜  zip_archive cat flag.txt
+"___x____x____" #Capture your own flag
+➜  zip_archive
